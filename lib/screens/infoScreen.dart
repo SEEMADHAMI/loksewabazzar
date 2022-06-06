@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:loksewa/screens/homescreen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:loksewa/widgets/topic_name.dart';
 
 class InfoScreen extends StatelessWidget {
   const InfoScreen({Key? key}) : super(key: key);
@@ -11,8 +12,8 @@ class InfoScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         leading: IconButton(
             onPressed: () {
-              Navigator.pop(context,
-                  MaterialPageRoute(builder: (context) => const HomeScreen()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Topic()));
             },
             icon: const Icon(
               Icons.arrow_back,
@@ -37,8 +38,8 @@ class InfoScreen extends StatelessWidget {
               ),
               Container(
                 padding: const EdgeInsets.only(top: 10, left: 8),
-                width: 350,
-                height: 40,
+                width: 315.w,
+                height: 40.h,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
                     color: Colors.white),
@@ -53,10 +54,10 @@ class InfoScreen extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        // Navigator.pop(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => const NameTopic()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Topic()));
                       },
                       child: const Icon(
                         Icons.arrow_forward,
@@ -71,8 +72,8 @@ class InfoScreen extends StatelessWidget {
               ),
               Container(
                 padding: const EdgeInsets.only(top: 10, left: 8),
-                width: 350,
-                height: 40,
+                width: 315.w,
+                height: 40.h,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
                     color: Colors.white),
@@ -114,87 +115,25 @@ class InfoScreen extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Container(
-                width: 350,
-                height: 60,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.white),
-                child: ListTile(
-                  leading: CircleAvatar(
-                    child: Image.asset('assets/images/Ellipse 10.png'),
-                    // backgroundColor: Colors.grey,
-                  ),
-                  title: const Text('Lorem Ipsom Dolor sit Mat'),
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Container(
-                width: 350,
-                height: 60,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.white),
-                child: ListTile(
-                  leading: CircleAvatar(
-                    child: Image.asset('assets/images/Ellipse 10 (1).png'),
-                  ),
-                  title: const Text('Lorem Ipsom Dolor sit Mat'),
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Container(
-                width: 350,
-                height: 60,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.white),
-                child: ListTile(
-                  leading: CircleAvatar(
-                    child: Image.asset('assets/images/Ellipse 10 (2).png'),
-                  ),
-                  title: const Text('Lorem Ipsom Dolor sit Mat'),
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Container(
-                width: 350,
-                height: 60,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.white),
-                child: ListTile(
-                  leading: CircleAvatar(
-                    child: Image.asset('assets/images/Ellipse 10 (3).png'),
-                  ),
-                  title: const Text('Lorem Ipsom Dolor sit Mat'),
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Container(
-                width: 350,
-                height: 60,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.white),
-                child: ListTile(
-                  leading: CircleAvatar(
-                    child: Image.asset('assets/images/Ellipse 10 (4).png'),
-                  ),
-                  title: const Text('Lorem Ipsom Dolor sit Mat'),
-                ),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
+              ListView.separated(
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) => Container(
+                        height: 76.h,
+                        width: 315.w,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white),
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            child: Image.asset('assets/images/Ellipse 10.png'),
+                          ),
+                          title: const Text('Lorem Ipsom Dolor sit Mat'),
+                        ),
+                      ),
+                  separatorBuilder: (context, index) => const SizedBox(
+                        height: 15,
+                      ),
+                  itemCount: 5)
             ],
           ),
         ),
