@@ -1,5 +1,6 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
+import 'package:loksewa/widgets/course_name.dart';
 
 class CourseContent extends StatelessWidget {
   const CourseContent({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class CourseContent extends StatelessWidget {
         child: Container(
           // width: double.infinity,
           color: const Color.fromARGB(255, 232, 226, 226),
-          padding: const EdgeInsets.only(top: 20, left: 20, right: 10),
+          padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -91,7 +92,8 @@ class CourseContent extends StatelessWidget {
                           height: 10,
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.only(
+                              top: 10.0, right: 10, left: 10),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -169,13 +171,13 @@ class CourseContent extends StatelessWidget {
                           color: Colors.white,
                         ),
                         // height: 90.h,
-
                         child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          // crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Column(
                               children: [
-                                Column(
+                                Row(
                                   children: const [
                                     Image(
                                         image: AssetImage(
@@ -184,41 +186,42 @@ class CourseContent extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            const SizedBox(
-                              height: 10,
-                              width: 10,
-                            ),
                             Column(
                               children: [
                                 Row(
                                   children: [
-                                    Text(
-                                      'Course Name',
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
+                                    TextButton(
+                                      onPressed: () {
+                                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const CourseName()));
+                                      },
+                                      child: const Text(
+                                        'Course Name',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold),
+                                      ),
                                     ),
                                   ],
                                 ),
-                                SizedBox(
-                                  height: 5,
-                                ),
                                 Row(
-                                  children: [Text('20 Videos\n2MCQ\n10 Notes')],
+                                  children: const [
+                                    Text('20 Videos\n2 MCQ\n10 Notes')
+                                  ],
                                 ),
-                            
                               ],
                             ),
                             const SizedBox(
-                              width: 140,
+                              width: 130,
                             ),
                             const Text(
-                              'Rs 2,000',
-                              style: TextStyle(
-                                color: Colors.blueGrey,
-                              ),
+                              'Rs 2000',
+                              style: TextStyle(color: Colors.blue),
                             ),
+                          
                           ],
                         ),
                       ),
